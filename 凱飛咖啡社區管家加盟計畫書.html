@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>凱飛咖啡社區管家 — 加盟計畫書</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;700&family=Noto+Sans+TC:wght@300;400;500;700&display=swap');
+  :root {
+    --navy: #1F3864;
+    --blue: #2E74B5;
+    --gold: #B8860B;
+    --light-blue: #EDF4FB;
+    --light-gold: #FFF8EE;
+    --text: #2c2c2c;
+    --muted: #666;
+    --border: #ddd;
+    --bg: #FAFAF8;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Noto Sans TC', sans-serif; background: var(--bg); color: var(--text); font-size: 15px; line-height: 1.8; }
+
+  /* NAV */
+  .nav { position: fixed; top: 0; left: 0; right: 0; background: var(--navy); z-index: 100; display: flex; align-items: center; gap: 0; padding: 0 32px; height: 52px; }
+  .nav-brand { color: #fff; font-size: 14px; font-weight: 700; margin-right: 32px; white-space: nowrap; }
+  .nav-links { display: flex; gap: 4px; overflow-x: auto; }
+  .nav-links a { color: rgba(255,255,255,0.75); text-decoration: none; font-size: 12px; padding: 6px 12px; border-radius: 4px; white-space: nowrap; transition: background 0.2s; }
+  .nav-links a:hover { background: rgba(255,255,255,0.15); color: #fff; }
+
+  /* LAYOUT */
+  .wrapper { max-width: 960px; margin: 0 auto; padding: 80px 32px 80px; }
+
+  /* COVER */
+  .cover { text-align: center; padding: 80px 0 60px; border-bottom: 3px solid var(--navy); margin-bottom: 60px; }
+  .cover-badge { display: inline-block; background: var(--light-gold); color: var(--gold); font-size: 12px; font-weight: 700; padding: 4px 16px; border-radius: 20px; border: 1px solid var(--gold); margin-bottom: 24px; letter-spacing: 0.1em; }
+  .cover h1 { font-family: 'Noto Serif TC', serif; font-size: 44px; color: var(--navy); line-height: 1.3; margin-bottom: 8px; }
+  .cover h2 { font-size: 22px; color: var(--blue); font-weight: 400; margin-bottom: 20px; }
+  .cover-sub { font-size: 14px; color: var(--muted); font-style: italic; }
+
+  /* SECTION */
+  .section { margin-bottom: 64px; scroll-margin-top: 70px; }
+  .section-header { display: flex; align-items: center; gap: 12px; margin-bottom: 24px; }
+  .section-num { width: 36px; height: 36px; background: var(--navy); color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 700; flex-shrink: 0; }
+  .section-title { font-size: 22px; font-weight: 700; color: var(--navy); }
+  .sub-title { font-size: 16px; font-weight: 700; color: var(--blue); margin: 24px 0 12px; padding-left: 12px; border-left: 3px solid var(--blue); }
+
+  /* TEXT */
+  p { margin-bottom: 12px; }
+  .note { font-size: 13px; color: var(--muted); font-style: italic; margin-top: 8px; }
+
+  /* BULLETS */
+  ul.clean { list-style: none; padding: 0; margin-bottom: 16px; }
+  ul.clean li { padding: 6px 0 6px 20px; position: relative; font-size: 15px; }
+  ul.clean li::before { content: "•"; color: var(--blue); font-weight: 700; position: absolute; left: 0; }
+
+  /* TABLE */
+  .table-wrap { overflow-x: auto; margin-bottom: 16px; }
+  table { width: 100%; border-collapse: collapse; font-size: 14px; }
+  th { background: var(--navy); color: #fff; padding: 10px 14px; text-align: center; font-weight: 700; font-size: 13px; }
+  td { padding: 10px 14px; border: 1px solid var(--border); vertical-align: middle; }
+  tr:nth-child(even) td { background: var(--light-blue); }
+  tr:nth-child(odd) td { background: #fff; }
+  td.label { font-weight: 700; color: var(--navy); }
+  td.center { text-align: center; }
+  td.highlight { font-weight: 700; color: var(--navy); font-size: 15px; }
+
+  /* CARDS */
+  .card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin-bottom: 24px; }
+  .card { background: #fff; border: 1px solid var(--border); border-radius: 10px; padding: 20px; }
+  .card-icon { font-size: 28px; margin-bottom: 10px; }
+  .card-title { font-size: 14px; font-weight: 700; color: var(--navy); margin-bottom: 6px; }
+  .card-body { font-size: 13px; color: var(--muted); line-height: 1.6; }
+
+  /* PILLAR CARDS */
+  .pillar { background: #fff; border: 1px solid var(--border); border-radius: 10px; padding: 24px; margin-bottom: 16px; border-left: 4px solid var(--blue); }
+  .pillar-tag { display: inline-block; background: var(--navy); color: #fff; font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 3px; margin-bottom: 10px; letter-spacing: 0.05em; }
+  .pillar-title { font-size: 17px; font-weight: 700; color: var(--navy); margin-bottom: 10px; }
+
+  /* STEPS */
+  .steps { display: flex; flex-direction: column; gap: 0; }
+  .step { display: flex; gap: 16px; align-items: flex-start; padding: 16px 0; border-bottom: 1px solid var(--border); }
+  .step:last-child { border-bottom: none; }
+  .step-num { width: 32px; height: 32px; background: var(--blue); color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 700; flex-shrink: 0; margin-top: 2px; }
+  .step-content { flex: 1; }
+  .step-title { font-weight: 700; color: var(--navy); margin-bottom: 4px; }
+  .step-desc { font-size: 14px; color: var(--muted); }
+
+  /* QA */
+  .qa { margin-bottom: 20px; }
+  .qa-q { font-weight: 700; color: var(--navy); margin-bottom: 6px; }
+  .qa-a { background: var(--light-blue); border-radius: 6px; padding: 12px 16px; font-size: 14px; }
+
+  /* HIGHLIGHT BOX */
+  .highlight-box { background: var(--navy); color: #fff; border-radius: 10px; padding: 32px; text-align: center; margin: 40px 0; }
+  .highlight-box h3 { font-family: 'Noto Serif TC', serif; font-size: 26px; margin-bottom: 12px; }
+  .highlight-box p { font-size: 14px; opacity: 0.85; }
+
+  /* PROFIT BOX */
+  .profit-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px; }
+  .profit-card { background: #fff; border: 1px solid var(--border); border-radius: 10px; padding: 20px; text-align: center; }
+  .profit-label { font-size: 12px; color: var(--muted); margin-bottom: 6px; }
+  .profit-value { font-size: 28px; font-weight: 700; color: var(--navy); }
+  .profit-sub { font-size: 12px; color: var(--blue); margin-top: 4px; }
+
+  /* FOOTER */
+  .footer { border-top: 1px solid var(--border); padding-top: 32px; text-align: center; font-size: 13px; color: var(--muted); margin-top: 60px; }
+  .footer-brand { font-size: 18px; font-weight: 700; color: var(--navy); margin-bottom: 8px; }
+  .disclaimer { font-size: 12px; color: #aaa; margin-top: 16px; line-height: 1.6; }
+
+  @media print {
+    .nav { display: none; }
+    .wrapper { padding-top: 20px; }
+    .section { page-break-inside: avoid; }
+  }
+  @media (max-width: 600px) {
+    .cover h1 { font-size: 30px; }
+    .profit-grid { grid-template-columns: 1fr; }
+    .nav-links { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-brand">凱飛咖啡社區管家</div>
+  <div class="nav-links">
+    <a href="#s1">品牌理念</a>
+    <a href="#s2">核心優勢</a>
+    <a href="#s3">加盟費用</a>
+    <a href="#s4">財務試算</a>
+    <a href="#s5">營收支柱</a>
+    <a href="#s6">一日時間表</a>
+    <a href="#s7">總部支援</a>
+    <a href="#s8">加盟流程</a>
+    <a href="#s9">Q&amp;A</a>
+  </div>
+</nav>
+
+<div class="wrapper">
+
+  <!-- COVER -->
+  <div class="cover">
+    <div class="cover-badge">CONFIDENTIAL · 商業機密計畫書</div>
+    <h1>凱飛咖啡社區管家</h1>
+    <h2>加盟創業計畫書</h2>
+    <p class="cover-sub">低勞動・穩健收益・社區尊榮感　— 退休人生的最佳第二舞台</p>
+  </div>
+
+  <!-- S1 品牌理念 -->
+  <div class="section" id="s1">
+    <div class="section-header">
+      <div class="section-num">1</div>
+      <div class="section-title">品牌理念與創辦背景</div>
+    </div>
+    <p>凱飛咖啡（CoFeel Coffee）由擁有 SCA 國際認證的咖啡職人創立，自行研發並生產數位智能熱風烘豆機，從生豆到杯子，完整掌握每一個風味環節。</p>
+    <p>我們相信：好咖啡不應該只存在於精品咖啡館。每一個社區，都值得有一位懂豆、懂人的「咖啡管家」。</p>
+    <p>凱飛社區管家計畫，專為退休後仍充滿活力、渴望與社區連結的朋友設計。這不只是一門生意，更是一種<strong>有尊嚴、有收入、有意義</strong>的生活方式。</p>
+  </div>
+
+  <!-- S2 核心優勢 -->
+  <div class="section" id="s2">
+    <div class="section-header">
+      <div class="section-num">2</div>
+      <div class="section-title">核心競爭優勢</div>
+    </div>
+
+    <div class="sub-title">2-1　自研智能烘豆機技術</div>
+    <p>凱飛與工程師共同研發「CoFeel 智能熱風咖啡烘豆機」，確保每位加盟主取得的豆子品質穩定如一，無須具備專業烘豆能力：</p>
+    <ul class="clean">
+      <li>一鍵快速烘焙，手動／自動雙模式</li>
+      <li>智能觸控面板，烘焙曲線可儲存與複製</li>
+      <li>自動冷卻行程，支援多台設備同步管理</li>
+      <li>最大烘焙量 1,600g 生豆，符合門市供豆節奏</li>
+    </ul>
+
+    <div class="sub-title">2-2　秤重賣豆商模：1 克 1 元起</div>
+    <div class="card-grid">
+      <div class="card"><div class="card-icon">⚖️</div><div class="card-title">降低購買門檻</div><div class="card-body">從未喝過精品豆的鄰居，也敢從 50g 開始嘗試</div></div>
+      <div class="card"><div class="card-icon">🌿</div><div class="card-title">少量新鮮</div><div class="card-body">符合現代消費者對品質與新鮮度的高度要求</div></div>
+      <div class="card"><div class="card-icon">🔄</div><div class="card-title">高回購率</div><div class="card-body">喝完才買，自然形成社區補給站的黏著習慣</div></div>
+    </div>
+
+    <div class="sub-title">2-3　專為退休族群設計</div>
+    <ul class="clean">
+      <li>門市 3–5 坪，無重體力搬運，輕鬆駕馭</li>
+      <li>自己顧店，時間自主，不受排班限制</li>
+      <li>社區鄰居就是客人，每天開門就是社交，不是工作</li>
+      <li>每月穩定收入，比定存利息強，比兼職有尊嚴</li>
+    </ul>
+  </div>
+
+  <!-- S3 加盟費用 -->
+  <div class="section" id="s3">
+    <div class="section-header">
+      <div class="section-num">3</div>
+      <div class="section-title">加盟條件與費用結構</div>
+    </div>
+
+    <div class="sub-title">3-1　加盟費明細（總計 30 萬元）</div>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>項目</th><th>金額</th><th>性質</th><th>說明</th></tr></thead>
+        <tbody>
+          <tr><td class="label">前 90 天生豆供應</td><td class="center">90,000 元</td><td class="center">含於加盟金</td><td>開幕前 3 個月進貨免預付，讓您零壓力試水溫</td></tr>
+          <tr><td class="label">職人級設備包</td><td class="center">130,000 元</td><td class="center">設備歸加盟主</td><td>磨豆機、溫控壺、8 支展示拉豆槽、店招、手沖設備；合約期滿永久所有</td></tr>
+          <tr><td class="label">品牌授權＋技術訓練</td><td class="center">50,000 元</td><td class="center">永久授權</td><td>SCA 烘焙曲線使用權、1 個月門市實習、飛仔 IP 永久支援</td></tr>
+          <tr><td class="label">履約保證金</td><td class="center">30,000 元</td><td class="center">3 年期滿全額退還</td><td>合約期滿或雙方合意解約，全額無息退還，無任何扣除</td></tr>
+          <tr><td class="label highlight">合計</td><td class="center highlight" colspan="3">300,000 元</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="sub-title">3-2　每月進貨結構</div>
+    <p>加盟主依售價向總部進豆，毛利結構透明固定。<strong>總部不抽取營業額分潤</strong>，加盟主毛利完整保留：</p>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>豆款定位</th><th>售給客人（元/克）</th><th>加盟主進價（元/克）</th><th>毛利率</th></tr></thead>
+        <tbody>
+          <tr><td class="label">社區引流款</td><td class="center">1.0 元</td><td class="center">0.55 元</td><td class="center">約 45%</td></tr>
+          <tr><td class="label">主力推薦款</td><td class="center">1.5 元</td><td class="center">0.83 元</td><td class="center">約 45%</td></tr>
+          <tr><td class="label">頂級鑑賞款</td><td class="center">2.0–3.0 元</td><td class="center">1.10–1.65 元</td><td class="center">約 45%</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="note">※ 進豆以外無任何隱藏費用。售價越高，同等毛利率下實際獲利金額越大。</p>
+  </div>
+
+  <!-- S4 財務試算 -->
+  <div class="section" id="s4">
+    <div class="section-header">
+      <div class="section-num">4</div>
+      <div class="section-title">真實財務試算（退休加盟主自己顧店版本）</div>
+    </div>
+
+    <div class="sub-title">4-1　基本營運條件</div>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>條件項目</th><th>設定值</th></tr></thead>
+        <tbody>
+          <tr><td class="label">店面坪數</td><td>3–5 坪（社區型店面）</td></tr>
+          <tr><td class="label">每月租金上限</td><td>20,000 元以內（含水電網路）</td></tr>
+          <tr><td class="label">營業時間</td><td>11:00–19:00，週一休，一週 6 天</td></tr>
+          <tr><td class="label">月有效營業天數</td><td>約 26 天</td></tr>
+          <tr><td class="label">顧店方式</td><td>加盟主本人，無需僱工</td></tr>
+          <tr><td class="label">整體毛利率</td><td>約 45%</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="sub-title">4-2　月損益試算</div>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>項目</th><th>保守情境（日均 3,500 元）</th><th>穩定情境（日均 4,500 元）</th></tr></thead>
+        <tbody>
+          <tr><td class="label">月營收</td><td class="center">91,000 元</td><td class="center">117,000 元</td></tr>
+          <tr><td class="label">毛利（45%）</td><td class="center">40,950 元</td><td class="center">52,650 元</td></tr>
+          <tr><td class="label">房租（含水電）</td><td class="center">-20,000 元</td><td class="center">-20,000 元</td></tr>
+          <tr><td class="label">人事費</td><td class="center">0 元（自己顧店）</td><td class="center">0 元（自己顧店）</td></tr>
+          <tr><td class="label highlight">月淨利</td><td class="center highlight">約 20,950 元</td><td class="center highlight">約 32,650 元</td></tr>
+          <tr><td class="label">30 萬回收期</td><td class="center">約 14–15 個月</td><td class="center">約 9–10 個月</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="profit-grid">
+      <div class="profit-card">
+        <div class="profit-label">加計體驗課收入後（每月 4 場）</div>
+        <div class="profit-value">+7,000</div>
+        <div class="profit-sub">每月額外增加約 7,000–10,000 元</div>
+      </div>
+      <div class="profit-card">
+        <div class="profit-label">加計微型 B2B 後（3–5 間商戶）</div>
+        <div class="profit-value">+7,500</div>
+        <div class="profit-sub">每月額外增加約 5,000–10,000 元</div>
+      </div>
+    </div>
+    <p class="note">※ 三大營收支柱全部運行時，月淨利有望達到 35,000–50,000 元以上。</p>
+  </div>
+
+  <!-- S5 三大支柱 -->
+  <div class="section" id="s5">
+    <div class="section-header">
+      <div class="section-num">5</div>
+      <div class="section-title">三大營收支柱</div>
+    </div>
+
+    <div class="pillar">
+      <div class="pillar-tag">支柱 A</div>
+      <div class="pillar-title">社區微型 B2B ── 建立穩定底盤</div>
+      <p>以門市為基地，主動拜訪半徑 500 公尺內的小型商戶：高端美髮沙龍、牙醫診所、房仲門市、瑜伽教室等。</p>
+      <ul class="clean">
+        <li>供應豆款：主力推薦款 1.5–1.8 元/克</li>
+        <li>目標：3–5 間固定商戶，每月額外增加 5,000–10,000 元</li>
+        <li>這類客戶預算充足、需求穩定，不被大型商用咖啡機業者服務</li>
+      </ul>
+    </div>
+
+    <div class="pillar">
+      <div class="pillar-tag">支柱 B</div>
+      <div class="pillar-title">社區團購與訂閱制 ── 轉化社交資本</div>
+      <ul class="clean">
+        <li><strong>創造稀缺：</strong>每月策劃限量精品豆（2.5–3 元/克）或節慶禮盒，作為團購核心</li>
+        <li><strong>社交分享：</strong>退休族群「分享優質事物」的特質，是最自然、最有力的社區行銷</li>
+        <li><strong>穩定留存：</strong>將單次購買者轉為每月穩定訂閱戶，鎖定未來現金流</li>
+      </ul>
+    </div>
+
+    <div class="pillar">
+      <div class="pillar-tag">支柱 C</div>
+      <div class="pillar-title">週末咖啡體驗課 ── 高毛利＋品牌建立</div>
+      <p>利用門市展示空間，每週末舉辦 4–6 人小班「手沖品鑑體驗課」：</p>
+      <ul class="clean">
+        <li>報名費：300 元/人（含基礎體驗）</li>
+        <li>現場加購頂級藝伎豆：3 元/克，毛利率超過 85%</li>
+        <li>一場收入 1,800–2,400 元；每月辦 4 場額外增加約 7,000–10,000 元</li>
+        <li>體驗課是最強的品牌建立工具，建立鄰居對您的專業信任感</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- S6 一日時間表 -->
+  <div class="section" id="s6">
+    <div class="section-header">
+      <div class="section-num">6</div>
+      <div class="section-title">一日店長時間表</div>
+    </div>
+    <p>退休加盟主的一天，輕鬆而有節奏：</p>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th style="width:120px">時段</th><th>內容</th></tr></thead>
+        <tbody>
+          <tr><td class="label center">10:30</td><td>開門前準備：補豆、確認秤重設備、整理展示槽</td></tr>
+          <tr><td class="label center">11:00</td><td>開門，迎接早場熟客（附近主婦、銀髮族補豆）</td></tr>
+          <tr><td class="label center">12:00–13:30</td><td>午間稍緩，可自行用餐休息，門市維持開放</td></tr>
+          <tr><td class="label center">14:00–17:00</td><td>下午黃金時段：下班前補豆客、週末體驗課（若有排課）</td></tr>
+          <tr><td class="label center">17:00–19:00</td><td>傍晚社區人流高峰，鄰居下班回家順道補豆</td></tr>
+          <tr><td class="label center">19:00</td><td>收攤，整理帳務，LINE 社群回覆隔日預約取豆</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>每天工作約 8 小時，但其中大半時間是等待與閒聊，不是勞動。<strong>您經營的是一種生活方式，而非一份工作。</strong></p>
+  </div>
+
+  <!-- S7 總部支援 -->
+  <div class="section" id="s7">
+    <div class="section-header">
+      <div class="section-num">7</div>
+      <div class="section-title">總部支援體系</div>
+    </div>
+
+    <div class="sub-title">7-1　加盟前：一個月門市實習</div>
+    <ul class="clean">
+      <li>於凱飛永安門市全程實習，真實熟悉商模與日常操作</li>
+      <li>學習秤重銷售話術、豆款介紹、簡易手沖示範</li>
+      <li>了解總部進豆流程、帳務記錄方式</li>
+    </ul>
+
+    <div class="sub-title">7-2　開幕後：每週固定陪跑</div>
+    <ul class="clean">
+      <li>開幕後前 3 個月，每週一次到店巡訪或視訊支援</li>
+      <li>協助分析週營收數據，提供調整建議</li>
+      <li>LINE 即時客服，技術問題當日回覆</li>
+    </ul>
+
+    <div class="sub-title">7-3　四重護城河</div>
+    <div class="card-grid">
+      <div class="card"><div class="card-icon">🛡️</div><div class="card-title">商圈發展保障</div><div class="card-body">嚴格執行專屬營運保護半徑，同一商圈絕不重複授權</div></div>
+      <div class="card"><div class="card-icon">✅</div><div class="card-title">終端品質稽核</div><div class="card-body">定期豆款品質校準計畫，協助排除技術盲點</div></div>
+      <div class="card"><div class="card-icon">📋</div><div class="card-title">稅務與法規合規</div><div class="card-body">小規模營業人申報輔導，化繁瑣行政為合規防護</div></div>
+      <div class="card"><div class="card-icon">📱</div><div class="card-title">數位落差消弭</div><div class="card-body">大字體知識庫、簡易 POS 教學、LINE 即時故障排除</div></div>
+    </div>
+  </div>
+
+  <!-- S8 加盟流程 -->
+  <div class="section" id="s8">
+    <div class="section-header">
+      <div class="section-num">8</div>
+      <div class="section-title">加盟流程</div>
+    </div>
+    <div class="steps">
+      <div class="step"><div class="step-num">1</div><div class="step-content"><div class="step-title">初步洽談</div><div class="step-desc">一杯咖啡的對話，了解您的期待與生活節奏，確認彼此適合</div></div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-content"><div class="step-title">門市參觀與試算</div><div class="step-desc">親至凱飛永安門市體驗真實商模，共同確認選址條件與財務試算</div></div></div>
+      <div class="step"><div class="step-num">3</div><div class="step-content"><div class="step-title">一個月實習</div><div class="step-desc">正式簽約前先實習，確認自己喜歡這種生活方式再決定</div></div></div>
+      <div class="step"><div class="step-num">4</div><div class="step-content"><div class="step-title">選址與簽約</div><div class="step-desc">總部協助評估社區密度與商圈保護半徑，確認後簽訂正式加盟合約（3 年）</div></div></div>
+      <div class="step"><div class="step-num">5</div><div class="step-content"><div class="step-title">設備安裝與開幕</div><div class="step-desc">設備到位、豆款備齊，總部全程陪同開幕，第一天不孤單</div></div></div>
+      <div class="step"><div class="step-num">6</div><div class="step-content"><div class="step-title">穩定營運＋陪跑</div><div class="step-desc">開幕後每週支援，協助您在 3 個月內建立穩定客群</div></div></div>
+    </div>
+  </div>
+
+  <!-- S9 Q&A -->
+  <div class="section" id="s9">
+    <div class="section-header">
+      <div class="section-num">9</div>
+      <div class="section-title">常見問題 Q&amp;A</div>
+    </div>
+    <div class="qa"><div class="qa-q">Q：我完全不懂咖啡，可以加盟嗎？</div><div class="qa-a">可以。一個月的門市實習已涵蓋所有必要知識。您不需要成為咖啡師，您需要的是對咖啡的興趣，以及願意與鄰居分享美好的心。</div></div>
+    <div class="qa"><div class="qa-q">Q：一定要自己顧店嗎？可以請人嗎？</div><div class="qa-a">可以請人，但我們不建議一開始就這樣做。自己顧店是這個商模的最大優勢——省下人事費就是淨利，而且退休加盟主本身就是最好的社區信任背書。待店面穩定後再討論協助模式。</div></div>
+    <div class="qa"><div class="qa-q">Q：如果做不下去想退場怎麼辦？</div><div class="qa-a">合約期滿或雙方合意解約，3 萬元履約保證金全額無息退還。13 萬元設備包在合約期滿後歸您個人所有，可帶走使用或出售，絕無浪費。</div></div>
+    <div class="qa"><div class="qa-q">Q：選址有限制嗎？</div><div class="qa-a">建議選擇 3–5 坪、租金 2 萬元以內的社區型店面。總部會協助評估社區人口密度、周邊競爭與商圈保護半徑，共同決定最佳地點。</div></div>
+    <div class="qa"><div class="qa-q">Q：加盟後還要繳什麼費用嗎？</div><div class="qa-a">不需要。除了每月向總部進豆（依售價毛利 45% 計算進價）之外，沒有任何月費、管理費或營業額分潤。您的每一分利潤都是您的。</div></div>
+  </div>
+
+  <!-- CLOSING -->
+  <div class="highlight-box">
+    <h3>您的第二人生，理應充滿醇香與從容。</h3>
+    <p>翻開這份計畫書，就是啟動您的零焦慮創業旅程的第一步。</p>
+  </div>
+
+  <div class="footer">
+    <div class="footer-brand">凱飛咖啡　CoFeel Coffee Community Manager</div>
+    <p>實習門市：凱飛永安門市　｜　洽詢請直接與創辦人聯繫</p>
+    <p class="disclaimer">本計畫書數據均基於真實營運經驗，財務試算為合理推估，實際結果因選址、個人經營方式而有所差異。<br>加盟前建議親赴門市實習，以真實體驗取代文字想像。</p>
+  </div>
+
+</div>
+</body>
+</html>
